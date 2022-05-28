@@ -1,0 +1,13 @@
+#quartus files
+**/output_files
+**/db
+**/incremental_db
+**/.qsys_edit
+*.bak
+
+#model-sim files
+**/work
+**/transcript
+*.mti
+*.wlf
+*.vstf
