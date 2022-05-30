@@ -1,0 +1,85 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 64 64 336 192)
+	(text "Updated_VGA_driver" (rect 5 0 133 19)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 107 24 124)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "Pixel_RGB[11..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "Pixel_RGB[11..0]" (rect 21 27 121 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "reset_n" (rect 0 0 43 19)(font "Intel Clear" (font_size 8)))
+		(text "reset_n" (rect 21 59 64 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "div-half_clk" (rect 0 0 69 19)(font "Intel Clear" (font_size 8)))
+		(text "div-half_clk" (rect 21 43 90 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 272 32)
+		(output)
+		(text "H_sync" (rect 0 0 42 19)(font "Intel Clear" (font_size 8)))
+		(text "H_sync" (rect 209 27 251 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 272 32)(pt 256 32))
+	)
+	(port
+		(pt 272 48)
+		(output)
+		(text "RGB_Outputs[11..0]" (rect 0 0 119 19)(font "Intel Clear" (font_size 8)))
+		(text "RGB_Outputs[11..0]" (rect 132 43 251 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 272 48)(pt 256 48)(line_width 3))
+	)
+	(port
+		(pt 272 64)
+		(output)
+		(text "V_sync" (rect 0 0 41 19)(font "Intel Clear" (font_size 8)))
+		(text "V_sync" (rect 210 59 251 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 272 64)(pt 256 64))
+	)
+	(port
+		(pt 272 80)
+		(output)
+		(text "RowCount[9..0]" (rect 0 0 89 19)(font "Intel Clear" (font_size 8)))
+		(text "RowCount[9..0]" (rect 162 75 251 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 272 80)(pt 256 80)(line_width 3))
+	)
+	(port
+		(pt 272 96)
+		(output)
+		(text "ColumnCount[9..0]" (rect 0 0 109 19)(font "Intel Clear" (font_size 8)))
+		(text "ColumnCount[9..0]" (rect 142 91 251 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 272 96)(pt 256 96)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 256 112))
+	)
+)
