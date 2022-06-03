@@ -21,7 +21,7 @@ refer to the applicable agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect -24 64 144 80)
+	(rect -64 56 104 72)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "ps2_clk" (rect 5 0 42 11)(font "Arial" ))
 	(pt 168 8)
@@ -34,11 +34,11 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -24 48 40 64))
+	(annotation_block (location)(rect -64 40 0 56))
 )
 (pin
 	(input)
-	(rect 32 432 200 448)
+	(rect -64 416 104 432)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "ps2_data" (rect 5 0 51 13)(font "Intel Clear" ))
 	(pt 168 8)
@@ -51,11 +51,11 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 32 416 96 432))
+	(annotation_block (location)(rect -64 400 0 416))
 )
 (pin
 	(input)
-	(rect -32 -24 144 -8)
+	(rect -64 -32 112 -16)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "hardware_reset" (rect 5 0 81 11)(font "Arial" ))
 	(pt 176 8)
@@ -68,11 +68,11 @@ refer to the applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -32 -40 24 -24))
+	(annotation_block (location)(rect -64 -48 -8 -32))
 )
 (pin
 	(input)
-	(rect -72 200 136 216)
+	(rect -64 216 144 232)
 	(text "INPUT" (rect 165 0 193 10)(font "Arial" (font_size 6)))
 	(text "hardware_clk_50MHz" (rect 5 0 112 13)(font "Intel Clear" ))
 	(pt 208 8)
@@ -85,13 +85,13 @@ refer to the applicable agreement for further details.
 		(line (pt 149 12)(pt 153 8))
 	)
 	(text "VCC" (rect 168 7 188 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -72 184 -8 200))
+	(annotation_block (location)(rect -64 200 0 216))
 )
 (pin
 	(output)
-	(rect 512 400 688 416)
+	(rect 432 384 608 400)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "leds[10..0]" (rect 90 0 140 11)(font "Arial" ))
+	(text "ps2_msg[10..0]" (rect 90 0 165 11)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -102,10 +102,10 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 632 384 688 400))
+	(annotation_block (location)(rect 552 376 608 384))
 )
 (symbol
-	(rect 280 376 456 488)
+	(rect 184 360 360 472)
 	(text "shift_register" (rect 5 0 68 11)(font "Arial" ))
 	(text "inst" (rect 8 96 25 107)(font "Arial" ))
 	(port
@@ -144,10 +144,10 @@ refer to the applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 160 96))
 	)
-	(annotation_block (parameter)(rect 280 344 461 374))
+	(annotation_block (parameter)(rect 184 328 365 358))
 )
 (symbol
-	(rect 168 -32 216 0)
+	(rect 136 -40 184 -8)
 	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
 	(text "inst1" (rect 3 21 27 34)(font "Intel Clear" ))
 	(port
@@ -172,7 +172,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 520 216 584 264)
+	(rect 528 232 592 280)
 	(text "OR2" (rect 1 0 22 10)(font "Arial" (font_size 6)))
 	(text "inst7" (rect 3 37 27 50)(font "Intel Clear" ))
 	(port
@@ -205,7 +205,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 136 176 360 256)
+	(rect 144 192 368 272)
 	(text "bounded_counter" (rect 5 0 91 11)(font "Arial" ))
 	(text "inst4" (rect 8 64 31 75)(font "Arial" ))
 	(port
@@ -247,10 +247,10 @@ refer to the applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 208 64))
 	)
-	(annotation_block (parameter)(rect 136 112 431 172))
+	(annotation_block (parameter)(rect 144 128 439 188))
 )
 (symbol
-	(rect 616 176 840 256)
+	(rect 624 192 848 272)
 	(text "bounded_counter" (rect 5 0 91 11)(font "Arial" ))
 	(text "inst5" (rect 8 64 31 75)(font "Arial" ))
 	(port
@@ -292,91 +292,96 @@ refer to the applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 208 64))
 	)
-	(annotation_block (parameter)(rect 616 112 911 172))
+	(annotation_block (parameter)(rect 624 128 919 188))
 )
 (connector
-	(pt 280 440)
-	(pt 200 440)
+	(pt 184 424)
+	(pt 104 424)
 )
 (connector
-	(text "sys_reset" (rect 226 408 273 421)(font "Intel Clear" ))
-	(pt 280 424)
-	(pt 224 424)
+	(text "sys_reset" (rect 130 392 177 405)(font "Intel Clear" ))
+	(pt 184 408)
+	(pt 128 408)
 )
 (connector
-	(text "ps2_msg[10..0]" (rect 456 392 532 405)(font "Intel Clear" ))
-	(pt 456 408)
-	(pt 512 408)
+	(text "sys_reset" (rect 186 -40 233 -27)(font "Intel Clear" ))
+	(pt 240 -24)
+	(pt 184 -24)
+)
+(connector
+	(pt 112 -24)
+	(pt 136 -24)
+)
+(connector
+	(text "data_sample_clk" (rect 106 376 189 389)(font "Intel Clear" ))
+	(pt 184 392)
+	(pt 128 392)
+)
+(connector
+	(text "sys_reset" (rect 474 248 521 261)(font "Intel Clear" ))
+	(pt 528 264)
+	(pt 472 264)
+)
+(connector
+	(text "data_sample_clk" (rect 850 208 933 221)(font "Intel Clear" ))
+	(pt 904 224)
+	(pt 848 224)
+)
+(connector
+	(text "clk_1MHz" (rect 386 208 435 221)(font "Intel Clear" ))
+	(pt 368 224)
+	(pt 624 224)
+)
+(connector
+	(pt 624 240)
+	(pt 608 240)
+)
+(connector
+	(pt 608 240)
+	(pt 608 256)
+)
+(connector
+	(pt 144 240)
+	(pt 128 240)
+)
+(connector
+	(pt 128 240)
+	(pt 128 256)
+)
+(connector
+	(text "sys_reset" (rect 66 240 113 253)(font "Intel Clear" ))
+	(pt 128 256)
+	(pt 64 256)
+)
+(connector
+	(text "<<__$DEF_ALIAS221>>" (rect 636 264 755 277)(font "Intel Clear" )(invisible))
+	(pt 592 256)
+	(pt 608 256)
+)
+(connector
+	(text "ps2_clk" (rect 124 48 162 61)(font "Intel Clear" ))
+	(pt 104 64)
+	(pt 160 64)
+)
+(connector
+	(text "ps2_clk" (rect 468 232 506 245)(font "Intel Clear" ))
+	(pt 472 248)
+	(pt 528 248)
+)
+(connector
+	(text "<<__$DEF_ALIAS303>>" (rect 360 376 479 389)(font "Intel Clear" )(invisible))
+	(pt 432 392)
+	(pt 360 392)
 	(bus)
 )
-(connector
-	(text "sys_reset" (rect 218 -32 265 -19)(font "Intel Clear" ))
-	(pt 272 -16)
-	(pt 216 -16)
-)
-(connector
-	(pt 144 -16)
-	(pt 168 -16)
-)
-(connector
-	(text "data_sample_clk" (rect 202 392 285 405)(font "Intel Clear" ))
-	(pt 280 408)
-	(pt 224 408)
-)
-(connector
-	(text "sys_reset" (rect 466 232 513 245)(font "Intel Clear" ))
-	(pt 520 248)
-	(pt 464 248)
-)
-(connector
-	(text "data_sample_clk" (rect 842 192 925 205)(font "Intel Clear" ))
-	(pt 896 208)
-	(pt 840 208)
-)
-(connector
-	(text "clk_1MHz" (rect 378 192 427 205)(font "Intel Clear" ))
-	(pt 360 208)
-	(pt 616 208)
-)
-(connector
-	(pt 616 224)
-	(pt 600 224)
-)
-(connector
-	(pt 600 224)
-	(pt 600 240)
-)
-(connector
-	(pt 136 224)
-	(pt 120 224)
-)
-(connector
-	(pt 120 224)
-	(pt 120 240)
-)
-(connector
-	(text "sys_reset" (rect 58 224 105 237)(font "Intel Clear" ))
-	(pt 120 240)
-	(pt 56 240)
-)
-(connector
-	(text "<<__$DEF_ALIAS221>>" (rect 628 248 747 261)(font "Intel Clear" )(invisible))
-	(pt 584 240)
-	(pt 600 240)
-)
-(connector
-	(text "ps2_clk" (rect 164 56 202 69)(font "Intel Clear" ))
-	(pt 144 72)
-	(pt 200 72)
-)
-(connector
-	(text "ps2_clk" (rect 460 216 498 229)(font "Intel Clear" ))
-	(pt 464 232)
-	(pt 520 232)
-)
-(text "Hardware to System Reset" (rect -40 -64 109 -49)(font "Intel Clear" (font_size 8)))
-(text "period=0.02 us" (rect -72 216 14 231)(font "Intel Clear" (font_size 8)))
-(text "period=1 us" (rect 376 208 444 223)(font "Intel Clear" (font_size 8)))
-(text "17 us counter that gets reset on falling edge of ps2_clk. " (rect 616 48 933 63)(font "Intel Clear" (font_size 8)))
-(text "the output signal from this block is only enabled when ps2_clk is LOW" (rect 616 64 1013 79)(font "Intel Clear" (font_size 8)))
-(rectangle (rect -40 -48 288 16))
+(text "Hardware to System Reset" (rect -72 -72 77 -57)(font "Intel Clear" (font_size 8)))
+(text "period=0.02 us" (rect -64 232 22 247)(font "Intel Clear" (font_size 8)))
+(text "period=1 us" (rect 384 224 452 239)(font "Intel Clear" (font_size 8)))
+(text "sample data BOUND microseconds after ps2_clk falling edge" (rect 616 112 960 127)(font "Intel Clear" (font_size 8)))
+(text "ps2_clk" (rect -72 8 -29 23)(font "Intel Clear" (font_size 8)))
+(text "Get data_sample_clk.  A signal that specifies when to sample ps2_data line." (rect -72 88 352 103)(font "Intel Clear" (font_size 8)))
+(text "FPGA Test with LED output" (rect -72 296 81 311)(font "Intel Clear" (font_size 8)))
+(rectangle (rect -72 -56 256 0))
+(rectangle (rect -72 24 256 80))
+(rectangle (rect -72 104 928 288))
+(rectangle (rect -72 312 928 488))
