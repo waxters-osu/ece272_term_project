@@ -16,6 +16,23 @@ Notes to self on PS/2 Protocol
         | Data = high, Clock = low:  Communication Inhibited.
         | Data = low, Clock = high:  Host Request-to-Send
         ---------------------------------
-    -Data and Clock lines are open Collector
     -Timing Violations are crucial!!!
         -ensure bits are send during proper amount of time after rise/fall time
+    -Host should sample data line in the middle of the LOW clock cycle (i.e. sample 15 to 25
+     microseconds after the falling edge of the clock).
+
+
+        
+see:    https://techdocs.altium.com/display/FPGA/PS2+Keyboard+Scan+Codes
+        http://ebook.pldworld.com/_eBook/FPGA%EF%BC%8FHDL/-Examples-/interfacing%20ps2%20keyboard%20using%20VHDL.pdf
+-----------------------------------------------------------------------------------------
+PS2_Keyboard_Driver: Key Encoding Description
+-----------------------------------------------------------------------------------------
+BIT             | 0     | 1     | 2     | 3     | 4     | 5     | 6     | 7             |
+-----------------------------------------------------------------------------------------
+KEY             | a     | s     | w     | d     |       |       |       | on_release    |
+-----------------------------------------------------------------------------------------
+KEY_CODE (HEX)  | 1C    | 1B    | 1D    | 23    |       |       |       | F0            |
+-----------------------------------------------------------------------------------------
+KEY_MAPPING     | Left  | Down  | Up    | Right |       |       |       | N/A           |
+-----------------------------------------------------------------------------------------

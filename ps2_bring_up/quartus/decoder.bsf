@@ -20,29 +20,22 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 240 96)
-	(text "bounded_counter" (rect 5 0 73 12)(font "Arial" ))
+	(rect 16 16 224 96)
+	(text "decoder" (rect 5 0 36 12)(font "Arial" ))
 	(text "inst" (rect 8 64 20 76)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "counted_signal" (rect 0 0 57 12)(font "Arial" ))
-		(text "counted_signal" (rect 21 27 78 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 1))
+		(text "in[N-1..0]" (rect 0 0 34 12)(font "Arial" ))
+		(text "in[N-1..0]" (rect 21 27 55 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
-		(pt 0 48)
-		(input)
-		(text "reset" (rect 0 0 20 12)(font "Arial" ))
-		(text "reset" (rect 21 43 41 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 1))
-	)
-	(port
-		(pt 224 32)
+		(pt 208 32)
 		(output)
-		(text "bound_reached" (rect 0 0 61 12)(font "Arial" ))
-		(text "bound_reached" (rect 142 27 203 39)(font "Arial" ))
-		(line (pt 224 32)(pt 208 32)(line_width 1))
+		(text "one_hot_out[7..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "one_hot_out[7..0]" (rect 118 27 187 39)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 3))
 	)
 	(parameter
 		"N"
@@ -50,17 +43,47 @@ refer to the applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
-		"BOUND"
-		"50"
+		"CODE7"
+		"0"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
-		"IS_RESET_ON_BOUND_REACHED"
+		"CODE6"
 		"1"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CODE5"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CODE4"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CODE3"
+		"4"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CODE2"
+		"5"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CODE1"
+		"6"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CODE0"
+		"7"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 208 64)(line_width 1))
+		(rectangle (rect 16 16 192 64)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 240 -64 340 16))
+	(annotation_block (parameter)(rect 224 -64 324 16))
 )

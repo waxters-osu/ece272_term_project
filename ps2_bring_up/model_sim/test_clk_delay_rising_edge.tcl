@@ -1,8 +1,7 @@
 # Referencing https://pages.cs.wisc.edu/~david/courses/cs552/S12/includes/modelsim.html
-
 # set global current simulation time and step size
 set elapsed_time 0
-set step 10
+set step 10000
 
 proc default_constructor {} {
 	global elapsed_time
@@ -12,9 +11,9 @@ proc default_constructor {} {
 	add wave *
 
     force -deposit reset 0 $elapsed_time
-    force -deposit clk 0 0, 1 [expr $step / 2] -repeat $step
-    force -deposit serial_in 0 0, 1 15, 0 30, 1 45, 0 60, 1 75
-    force -freeze serial_in 1 100
+
+    force -freeze fast_clk 0 0, 1 1 -repeat 2
+    force -freeze slow_clk 0 0, 1 5000 -repeat 10000
 }
 
 proc default_destructor {} {
@@ -42,7 +41,7 @@ proc main {} {
     default_constructor
     trigger_reset   
 
-    set elapsed_time [expr $step * 20]
+    set elapsed_time 500000
 
     default_destructor
 }
