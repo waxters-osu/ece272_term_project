@@ -4,6 +4,7 @@
 **/incremental_db
 **/.qsys_edit
 *.bak
+**/cr_ie_info.json
 
 #model-sim files
 **/work

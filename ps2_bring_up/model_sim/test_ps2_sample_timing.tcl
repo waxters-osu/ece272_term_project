@@ -27,7 +27,7 @@ proc default_destructor {} {
 	global elapsed_time
     global step
 
-    add wave -position end sim:/ps2_bring_up/b2v_inst6/*
+    add wave -position end sim:/ps2_bring_up/b2v_inst3/*
 	run $elapsed_time
     view wave
 }
@@ -82,16 +82,41 @@ proc main {} {
     global elapsed_time
     global step
 
+    ######
     # initialize system
+    ######
     default_constructor
     trigger_reset   
     set elapsed_time 100000
 
-    # perform tests
+    ######
+    # setup tests
+    ######
+    # press "a"
     send_ps2_msg 28
+    set elapsed_time [expr $elapsed_time + ($step*10)]
 
-    set elapsed_time 500000
+    # release "a"
+    send_ps2_msg 240
+    set elapsed_time [expr $elapsed_time + ($step*10)]
+    send_ps2_msg 28
+    set elapsed_time [expr $elapsed_time + ($step*10)]
 
-    # cleanup/end of test calls
+    # press "a" again
+    send_ps2_msg 28
+    set elapsed_time [expr $elapsed_time + ($step*10)]
+
+    # press "s"
+    send_ps2_msg 29
+    set elapsed_time [expr $elapsed_time + ($step*10)]
+
+    # press "s"
+    send_ps2_msg 29
+    set elapsed_time [expr $elapsed_time + ($step*10)]
+
+    ######
+    # run tests
+    ######
+    set elapsed_time 1500000
     default_destructor
 }

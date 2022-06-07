@@ -20,63 +20,45 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 216 128)
-	(text "hold_register" (rect 5 0 55 12)(font "Arial" ))
+	(rect 16 16 280 128)
+	(text "button_driver" (rect 5 0 58 12)(font "Arial" ))
 	(text "inst" (rect 8 96 20 108)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "shift_clk" (rect 0 0 33 12)(font "Arial" ))
-		(text "shift_clk" (rect 21 27 54 39)(font "Arial" ))
+		(text "reset" (rect 0 0 20 12)(font "Arial" ))
+		(text "reset" (rect 21 27 41 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 1))
 	)
 	(port
 		(pt 0 48)
 		(input)
-		(text "sync_clk" (rect 0 0 36 12)(font "Arial" ))
-		(text "sync_clk" (rect 21 43 57 55)(font "Arial" ))
+		(text "polling_clk" (rect 0 0 38 12)(font "Arial" ))
+		(text "polling_clk" (rect 21 43 59 55)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 1))
 	)
 	(port
 		(pt 0 64)
 		(input)
-		(text "reset" (rect 0 0 20 12)(font "Arial" ))
-		(text "reset" (rect 21 59 41 71)(font "Arial" ))
+		(text "new_ps2_msg" (rect 0 0 59 12)(font "Arial" ))
+		(text "new_ps2_msg" (rect 21 59 80 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 1))
 	)
 	(port
 		(pt 0 80)
 		(input)
-		(text "in[N-1..0]" (rect 0 0 34 12)(font "Arial" ))
-		(text "in[N-1..0]" (rect 21 75 55 87)(font "Arial" ))
+		(text "key_encoding[7..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "key_encoding[7..0]" (rect 21 75 96 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
-		(pt 200 32)
+		(pt 264 32)
 		(output)
-		(text "completed_shift" (rect 0 0 62 12)(font "Arial" ))
-		(text "completed_shift" (rect 117 27 179 39)(font "Arial" ))
-		(line (pt 200 32)(pt 184 32)(line_width 1))
+		(text "is_key_pressed[6..0]" (rect 0 0 84 12)(font "Arial" ))
+		(text "is_key_pressed[6..0]" (rect 159 27 243 39)(font "Arial" ))
+		(line (pt 264 32)(pt 248 32)(line_width 3))
 	)
-	(port
-		(pt 200 48)
-		(output)
-		(text "out[N-1..0]" (rect 0 0 40 12)(font "Arial" ))
-		(text "out[N-1..0]" (rect 139 43 179 55)(font "Arial" ))
-		(line (pt 200 48)(pt 184 48)(line_width 3))
-	)
-	(parameter
-		"N"
-		"11"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"NUM_SHIFTS"
-		"11"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 184 96)(line_width 1))
+		(rectangle (rect 16 16 248 96)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 216 -64 316 16))
 )

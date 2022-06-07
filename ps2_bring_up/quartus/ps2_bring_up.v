@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus Prime"
 // VERSION		"Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
-// CREATED		"Mon Jun  6 02:09:58 2022"
+// CREATED		"Mon Jun  6 16:01:05 2022"
 
 module ps2_bring_up(
 	ps2_clk,
@@ -29,12 +29,14 @@ input wire	ps2_clk;
 input wire	ps2_data;
 input wire	hardware_reset;
 input wire	hardware_clk_50MHz;
-output wire	[7:0] leds;
+output wire	[6:0] leds;
 
 wire	clk_1MHz;
 wire	data_sample_clk;
 wire	delayed_data_sample_clk;
+wire	[6:0] is_pressed_key_encoding;
 wire	[7:0] key_encoding;
+wire	new_ps2_msg;
 wire	ps2_data_filtered;
 wire	[10:0] ps2_msg;
 wire	[10:0] ps2_shift_reg;
@@ -59,8 +61,10 @@ assign	sys_reset =  ~hardware_reset;
 
 hold_register	b2v_inst12(
 	.shift_clk(delayed_data_sample_clk),
+	.sync_clk(hardware_clk_50MHz),
 	.reset(sys_reset),
 	.in(ps2_shift_reg),
+	.completed_shift(new_ps2_msg),
 	.out(ps2_msg));
 	defparam	b2v_inst12.N = 11;
 	defparam	b2v_inst12.NUM_SHIFTS = 11;
@@ -81,6 +85,14 @@ filter_register	b2v_inst2(
 	.input_to_filter(ps2_data),
 	.filtered_out(ps2_data_filtered));
 	defparam	b2v_inst2.MIN_SAME_SAMPLES = 20;
+
+
+button_driver	b2v_inst3(
+	.reset(sys_reset),
+	.polling_clk(clk_1MHz),
+	.new_ps2_msg(new_ps2_msg),
+	.key_encoding(key_encoding),
+	.is_key_pressed(is_pressed_key_encoding));
 
 
 bounded_counter	b2v_inst4(
@@ -108,14 +120,14 @@ decoder	b2v_inst6(
 	defparam	b2v_inst6.CODE1 = 8'b00011011;
 	defparam	b2v_inst6.CODE2 = 8'b00011101;
 	defparam	b2v_inst6.CODE3 = 8'b00100011;
-	defparam	b2v_inst6.CODE4 = 8'b11111111;
-	defparam	b2v_inst6.CODE5 = 8'b11111111;
-	defparam	b2v_inst6.CODE6 = 8'b11111111;
+	defparam	b2v_inst6.CODE4 = 8'b00000000;
+	defparam	b2v_inst6.CODE5 = 8'b00000000;
+	defparam	b2v_inst6.CODE6 = 8'b00000000;
 	defparam	b2v_inst6.CODE7 = 8'b11110000;
 	defparam	b2v_inst6.N = 8;
 
 assign	SYNTHESIZED_WIRE_0 = sys_reset | ps2_clk;
 
-assign	leds = key_encoding;
+assign	leds = is_pressed_key_encoding;
 
 endmodule
