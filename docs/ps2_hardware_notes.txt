@@ -1,7 +1,48 @@
-Wires from PS/2 Port
-
+Pin Descripiton of PS/2 Connection
 ---------------------------------
 | Black | Red   | Green | White | 
 ---------------------------------
 | GND   | +5V   | Data  | Clock | 
 ---------------------------------
+
+Notes to self on PS/2 Protocol
+    -Slave = Device;    Host = Master.
+    -Device generates clock
+    -Bus must be "idle" for device to communicate
+        ---------------------------------
+        | Summary: Bus States
+        ---------------------------------
+        | Data = high, Clock = high:  Idle state.
+        | Data = high, Clock = low:  Communication Inhibited.
+        | Data = low, Clock = high:  Host Request-to-Send
+        ---------------------------------
+    -Timing Violations are crucial!!!
+        -ensure bits are send during proper amount of time after rise/fall time
+    -Host should sample data line in the middle of the LOW clock cycle (i.e. sample 15 to 25
+     microseconds after the falling edge of the clock).
+
+
+        
+see:    https://techdocs.altium.com/display/FPGA/PS2+Keyboard+Scan+Codes
+        http://ebook.pldworld.com/_eBook/FPGA%EF%BC%8FHDL/-Examples-/interfacing%20ps2%20keyboard%20using%20VHDL.pdf
+-----------------------------------------------------------------------------------------
+PS2_Keyboard_Driver: "key_encoding" Description
+-----------------------------------------------------------------------------------------
+BIT             | 0     | 1     | 2     | 3     | 4     | 5     | 6     | 7             |
+-----------------------------------------------------------------------------------------
+KEY             | a     | s     | w     | d     |       |       |       | on_release    |
+-----------------------------------------------------------------------------------------
+KEY_CODE (HEX)  | 1C    | 1B    | 1D    | 23    |       |       |       | F0            |
+-----------------------------------------------------------------------------------------
+KEY_MAPPING     | Left  | Down  | Up    | Right |       |       |       | N/A           |
+-----------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------
+PS2_Keyboard_Driver: "is_pressed_key" Description
+-------------------------------------------------------------------------
+BIT             | 0     | 1     | 2     | 3     | 4     | 5     | 6     |
+-------------------------------------------------------------------------
+KEY             | a     | s     | w     | d     |       |       |       |
+-------------------------------------------------------------------------
+KEY_MAPPING     | Left  | Down  | Up    | Right |       |       |       |
+-------------------------------------------------------------------------
